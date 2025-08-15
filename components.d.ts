@@ -9,8 +9,13 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
+    DialogDelete: typeof import('./src/components/DialogTaskDelete.vue')['default']
+    DialogTaskDelete: typeof import('./src/components/DialogTaskDelete.vue')['default']
+    DialogTaskFields: typeof import('./src/components/DialogTaskFields.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    ListTasks: typeof import('./src/components/ListTasks.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ToDoList: typeof import('./src/components/ToDoList.vue')['default']
   }
 }

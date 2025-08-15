@@ -1,6 +1,10 @@
 <template>
-    <h1>Hello World</h1>
-    <p>
-        gustavo erick
-    </p>
+  <div>
+    <ToDoList/>
+  </div>
 </template>
+
+<script setup>
+import ToDoList from '@/components/ToDoList.vue';
+
+</script>

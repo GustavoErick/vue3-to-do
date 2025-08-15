@@ -4,7 +4,7 @@
         <v-list>
             <v-list-item
                 prepend-avatar="https://avatars.githubusercontent.com/u/105515712?v=4"
-                subtitle="To Do List"
+                subtitle="Lista de Tarefas"
                 title="Gustavo Erick"
             ></v-list-item>
         </v-list>
