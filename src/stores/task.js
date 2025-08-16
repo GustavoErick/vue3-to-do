@@ -30,7 +30,6 @@ export const useTaskStore = defineStore('task', {
         this.indexTaskSelected = index;
       }
       this.showDialogTaskFields = !this.showDialogTaskFields;
-      this.saveLocalData();
     },
 
     editTask(taskEdited) {

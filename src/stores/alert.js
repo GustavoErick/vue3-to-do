@@ -28,7 +28,7 @@ export const useAlertStore = defineStore('alert', {
     },
 
     notifyAlertDeleted() {
-      this.type = 'success';
+      this.type = 'warning';
       this.text = 'Atividade deletada com sucesso!';
       this.notifyAlert();
     },

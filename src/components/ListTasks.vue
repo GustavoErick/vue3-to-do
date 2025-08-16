@@ -60,8 +60,8 @@
   import { ref, mergeProps } from 'vue';
   import { useTaskStore } from '@/stores/task';
 
-  import DialogTaskFields from './DialogTaskFields.vue';
-  import DialogDelete from './DialogTaskDelete.vue';
+  import DialogTaskFields from './dialogs/DialogTaskFields.vue';
+  import DialogDelete from './dialogs/DialogTaskDelete.vue';
   
   const settingsSelection = ref([]);
   const taskStore = useTaskStore();
