@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Alert: typeof import('./src/components/Alert.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     DialogDelete: typeof import('./src/components/DialogTaskDelete.vue')['default']
     DialogTaskDelete: typeof import('./src/components/DialogTaskDelete.vue')['default']
