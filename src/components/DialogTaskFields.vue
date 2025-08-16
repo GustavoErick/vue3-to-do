@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-dialog
-      v-model="props.dialog"
+      v-model="useTaskStore().showDialogTaskFields"
       max-width="600"
     >
       <v-card
@@ -42,9 +42,9 @@
 
 <script setup>
   import { defineProps } from 'vue';
+  import { useTaskStore } from '@/stores/task';
 
   const props = defineProps({
-    dialog: Boolean,
     task: Object
   });
 

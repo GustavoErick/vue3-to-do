@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-dialog
-      v-model="props.dialog"
+      v-model="useTaskStore().showDialogTaskDelete"
       max-width="600"
     >
       <v-card
@@ -32,10 +32,6 @@
 </template>
 
 <script setup>
-  import { defineProps } from 'vue';
-
-  const props = defineProps({
-    dialog: Boolean,
-  });
+  import { useTaskStore } from '@/stores/task';
 
 </script>

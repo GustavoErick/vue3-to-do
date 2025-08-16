@@ -8,19 +8,38 @@ export const useTaskStore = defineStore('task', {
       { title: 'tarefa 3', subtitle: 'varrer a casa' },
       { title: 'tarefa 4', subtitle: 'comprar mantimentos' },
     ],
-
-    titleTaskCreating: ""
+    titleTaskCreating: "",
+    indexTaskSelected: 0,
+    showDialogTaskDelete: false,
+    showDialogTaskFields: false,
   }),
 
   actions: {
     addTask() {
-    if (!this.titleTaskCreating) return;
+      if (!this.titleTaskCreating) return;
+      this.tasks.push({
+        title: this.titleTaskCreating
+      });
+      this.titleTaskCreating = "";
+    },
 
-    this.tasks.push({
-      title: this.titleTaskCreating
-    });
+    toggleEdit(index) {
+      if (index != null) {
+        this.indexTaskSelected = index;
+      }
+      this.showDialogTaskFields = !this.showDialogTaskFields;
+    },
 
-    this.titleTaskCreating = "";
-  }
+    toggleDelete(index) {
+      if (index != null) {
+        this.indexTaskSelected = index;
+      }
+      this.showDialogTaskDelete = !this.showDialogTaskDelete;
+    },
+
+    deleteTask() {
+      this.tasks.splice(this.indexTaskSelected, 1);
+      this.toggleDelete();
+    },
   }
 })

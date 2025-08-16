@@ -3,22 +3,18 @@
       label="Adicionar Tarefa"
       prepend-icon="mdi-plus"
       variant="solo-filled"
-      @keyup.enter="taskStore.addTask"
-      v-model="taskStore.titleTaskCreating"
+      @keyup.enter="useTaskStore().addTask"
+      v-model="useTaskStore().titleTaskCreating"
       clearable
     ></v-text-field>
 
-  <ListTasks 
-  :tasks="tasks"
-  />
+  <ListTasks/>
 </template>
 
 <script setup>
   import ListTasks from './ListTasks.vue';
   import { useTaskStore } from '@/stores/task';
 
-  const taskStore = useTaskStore();
-  const tasks = taskStore.tasks;
 </script>
 
 <style scoped>
