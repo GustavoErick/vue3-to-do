@@ -7,7 +7,7 @@
     >
       <v-list-subheader>A fazer</v-list-subheader>
       <v-list-item
-        v-for="(task, index) in useTaskStore().tasks"
+        v-for="(task, index) in taskStore.tasks"
         :key="index"
       >
         <template v-slot:prepend="{ isSelected, select }">
@@ -35,10 +35,10 @@
               </v-tooltip>
             </template>
             <v-list>
-              <v-list-item value="1" @click="useTaskStore().toggleEdit(index)">
+              <v-list-item value="1" @click="taskStore.toggleEdit(index)">
                 <v-list-item-title>Editar</v-list-item-title>
               </v-list-item>
-              <v-list-item value="2" @click="useTaskStore().toggleDelete(index)">
+              <v-list-item value="2" @click="taskStore.toggleDelete(index)">
                 <v-list-item-title>Deletar </v-list-item-title>
               </v-list-item>
             </v-list>
@@ -49,12 +49,12 @@
   </div>
 
   <DialogTaskFields 
-  @toggleEdit="useTaskStore().toggleEdit"
-  :task="useTaskStore().tasks[useTaskStore().indexTaskSelected]"/>
+  :task="taskStore.tasks[taskStore.indexTaskSelected]"
+  />
 
   <DialogDelete
-  @toggleDelete="useTaskStore().toggleDelete"
-  @deleteTask="useTaskStore().deleteTask"
+  @toggleDelete="taskStore.toggleDelete()"
+  @deleteTask="taskStore.deleteTask()"
   />
 </template>
 
@@ -66,5 +66,6 @@
   import DialogDelete from './DialogTaskDelete.vue';
   
   const settingsSelection = ref([]);
+  const taskStore = useTaskStore();
 
 </script>

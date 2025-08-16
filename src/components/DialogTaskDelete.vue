@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-dialog
-      v-model="useTaskStore().showDialogTaskDelete"
+      v-model="taskStore.showDialogTaskDelete"
       max-width="600"
     >
       <v-card
@@ -17,13 +17,13 @@
           <v-btn
             color="primary"
             text="Cancelar"
-            @click="$emit('toggleDelete')"
+            @click="taskStore.toggleDelete()"
           ></v-btn>
 
           <v-btn
             color="red"
             text="Deletar"
-            @click="$emit('deleteTask')"
+            @click="taskStore.deleteTask()"
           ></v-btn>
         </v-card-actions>
       </v-card>
@@ -33,5 +33,7 @@
 
 <script setup>
   import { useTaskStore } from '@/stores/task';
+
+  const taskStore = useTaskStore();
 
 </script>

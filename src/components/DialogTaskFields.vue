@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-dialog
-      v-model="useTaskStore().showDialogTaskFields"
+      v-model="taskStore.showDialogTaskFields"
       max-width="600"
     >
       <v-card
@@ -32,7 +32,7 @@
             color="primary"
             text="Ok"
             variant="tonal"
-            @click="$emit('toggleEdit')"
+            @click="taskStore.toggleEdit()"
           ></v-btn>
         </v-card-actions>
       </v-card>
@@ -43,9 +43,11 @@
 <script setup>
   import { defineProps } from 'vue';
   import { useTaskStore } from '@/stores/task';
-
+  
   const props = defineProps({
     task: Object
   });
-
+  
+  const taskStore = useTaskStore();
+  
 </script>
