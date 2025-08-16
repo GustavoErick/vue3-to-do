@@ -1,14 +1,11 @@
 <template>
-  <!-- <v-main>
-    <router-view />
-  </v-main> -->
   <v-app>
-    <Alert
-    v-if="alertStore.showAlert"/>
-    <View></View>
+    <Alert v-if="alertStore.showAlert"/>
+    <v-main>
+      <View/>
+    </v-main>  
+    <AppFooter />
   </v-app>
-
-  <AppFooter />
 </template>
 
 <script setup>
