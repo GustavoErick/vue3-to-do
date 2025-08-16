@@ -49,5 +49,4 @@
   });
   
   const taskStore = useTaskStore();
-  
 </script>

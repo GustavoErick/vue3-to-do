@@ -14,7 +14,6 @@
 <script setup>
   import ListTasks from './ListTasks.vue';
   import { useTaskStore } from '@/stores/task';
-
 </script>
 
 <style scoped>

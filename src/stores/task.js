@@ -21,6 +21,7 @@ export const useTaskStore = defineStore('task', {
         title: this.titleTaskCreating
       });
       this.titleTaskCreating = "";
+      this.saveLocalData();
     },
 
     toggleEdit(index) {
@@ -28,6 +29,7 @@ export const useTaskStore = defineStore('task', {
         this.indexTaskSelected = index;
       }
       this.showDialogTaskFields = !this.showDialogTaskFields;
+      this.saveLocalData();
     },
 
     toggleDelete(index) {
@@ -40,6 +42,11 @@ export const useTaskStore = defineStore('task', {
     deleteTask() {
       this.tasks.splice(this.indexTaskSelected, 1);
       this.toggleDelete();
+      this.saveLocalData();
     },
+
+    saveLocalData() {
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    }
   }
 })

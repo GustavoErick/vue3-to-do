@@ -52,10 +52,7 @@
   :task="taskStore.tasks[taskStore.indexTaskSelected]"
   />
 
-  <DialogDelete
-  @toggleDelete="taskStore.toggleDelete()"
-  @deleteTask="taskStore.deleteTask()"
-  />
+  <DialogDelete/>
 </template>
 
 <script setup>
@@ -67,5 +64,4 @@
   
   const settingsSelection = ref([]);
   const taskStore = useTaskStore();
-
 </script>
