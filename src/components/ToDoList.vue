@@ -4,8 +4,8 @@
       prepend-icon="mdi-plus"
       variant="solo-filled"
       :rules="rules"
-      @keyup.enter="useTaskStore().addTask"
-      v-model="useTaskStore().titleTaskCreating"
+      @keyup.enter="taskStore.addTask()"
+      v-model="taskStore.titleTaskCreating"
       clearable
     ></v-text-field>
 

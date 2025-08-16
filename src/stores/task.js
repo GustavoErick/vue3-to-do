@@ -1,5 +1,9 @@
 import { defineStore } from 'pinia'
 
+import { useAlertStore } from '@/stores/alert';
+
+const alertStore = useAlertStore();
+
 export const useTaskStore = defineStore('task', {
   state: () => ({
     tasks: [],
@@ -13,10 +17,12 @@ export const useTaskStore = defineStore('task', {
     addTask() {
       if (this.titleTaskCreating.length < 5) return;
       this.tasks.push({
-        title: this.titleTaskCreating
+        title: this.titleTaskCreating,
+        done: false
       });
       this.titleTaskCreating = "";
       this.saveLocalData();
+      alertStore.notifyAlertCreated();
     },
 
     toggleEdit(index) {
@@ -25,6 +31,13 @@ export const useTaskStore = defineStore('task', {
       }
       this.showDialogTaskFields = !this.showDialogTaskFields;
       this.saveLocalData();
+    },
+
+    editTask(taskEdited) {
+      this.tasks[this.indexTaskSelected] = taskEdited;
+      this.toggleEdit();
+      this.saveLocalData();
+      alertStore.notifyAlertEdited();
     },
 
     toggleDelete(index) {
@@ -38,6 +51,7 @@ export const useTaskStore = defineStore('task', {
       this.tasks.splice(this.indexTaskSelected, 1);
       this.toggleDelete();
       this.saveLocalData();
+      alertStore.notifyAlertDeleted();
     },
 
     saveLocalData() {
@@ -49,6 +63,11 @@ export const useTaskStore = defineStore('task', {
       if (items) {
         this.tasks = JSON.parse(items);
       }
+    },
+
+    toggleDoneTask(index) {
+      this.tasks[index].done = !this.tasks[index].done;
+      this.saveLocalData();
     }
   }
 })

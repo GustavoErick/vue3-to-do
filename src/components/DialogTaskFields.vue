@@ -11,13 +11,13 @@
         <v-card-text>
           <v-text-field
             label="Nome*"
-            v-model="props.task.title"
+            v-model="taskEdited.title"
             required
           ></v-text-field>
 
           <v-text-field
             label="Descrição da tarefa"
-            v-model="props.task.subtitle"
+            v-model="taskEdited.subtitle"
           ></v-text-field>
 
           <small class="text-caption text-medium-emphasis">*Campos obrigatórios</small>
@@ -27,12 +27,17 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-
+          <v-btn
+            color="primary"
+            text="Cancelar"
+            variant="outlined"
+            @click="taskStore.toggleEdit()"
+          ></v-btn>
           <v-btn
             color="primary"
             text="Ok"
             variant="elevated"
-            @click="taskStore.toggleEdit()"
+            @click="taskStore.editTask(taskEdited)"
           ></v-btn>
         </v-card-actions>
       </v-card>
@@ -41,12 +46,24 @@
 </template>
 
 <script setup>
-  import { defineProps } from 'vue';
+  import { defineProps, ref, watch } from 'vue';
   import { useTaskStore } from '@/stores/task';
   
   const props = defineProps({
     task: Object
   });
+
+  const taskEdited = ref({});
   
   const taskStore = useTaskStore();
+
+  watch(
+    () => taskStore.showDialogTaskFields,
+    (isOpen) => {  // isOpen é o valor de showDialogTaskFields, que pode ser true ou false. O watch observa quando esse valor é alterado, ou seja, quando o dialog é aberto ou fechado.
+      if (isOpen) {
+        taskEdited.value = { ...props.task };
+      }
+    }
+  );
+
 </script>
