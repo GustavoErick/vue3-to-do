@@ -31,7 +31,7 @@
           <v-btn
             color="primary"
             text="Ok"
-            variant="tonal"
+            variant="elevated"
             @click="taskStore.toggleEdit()"
           ></v-btn>
         </v-card-actions>

@@ -15,7 +15,8 @@
           <v-spacer></v-spacer>
 
           <v-btn
-            color="primary"
+            color="red"
+            variant="elevated"
             text="Cancelar"
             @click="taskStore.toggleDelete()"
           ></v-btn>
@@ -23,6 +24,7 @@
           <v-btn
             color="red"
             text="Deletar"
+            variant="outlined"
             @click="taskStore.deleteTask()"
           ></v-btn>
         </v-card-actions>

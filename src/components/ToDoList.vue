@@ -3,6 +3,7 @@
       label="Adicionar Tarefa"
       prepend-icon="mdi-plus"
       variant="solo-filled"
+      :rules="rules"
       @keyup.enter="useTaskStore().addTask"
       v-model="useTaskStore().titleTaskCreating"
       clearable
@@ -17,6 +18,13 @@
   import { useTaskStore } from '@/stores/task';
 
   const taskStore = useTaskStore();
+
+  const rules = [
+    value => {
+      if(!value || value.length >= 5) return true;
+      return 'O nome da tarefa deve ter no mínimo 5 caracteres'
+    }
+  ]
 
   onMounted(() => {
     taskStore.getTasks();
