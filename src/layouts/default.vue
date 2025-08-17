@@ -4,7 +4,6 @@
     <v-main>
       <View/>
     </v-main>  
-    <AppFooter />
   </v-app>
 </template>
 
