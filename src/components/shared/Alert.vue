@@ -21,7 +21,10 @@
   .alert-notification {
     position: fixed;
     z-index: 1;
-    padding: 0 35% 0 35%;
     bottom: 50px;
+    width: 90%; 
+    max-width: 400px; 
+    left: 50%; 
+    transform: translateX(-50%);
   }
 </style>
